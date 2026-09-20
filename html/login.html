@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IOT Dashboard - Login</title>
+
+    <link rel="stylesheet" href="../css/login.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container">
+
+                <a class="navbar-brand" href="#">
+                    IOT Dashboard
+                </a>
+
+                <img src="../public/images.jfif"
+                    alt="iot"
+                    width="40"
+                    height="40"
+                    class="rounded">
+
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <div class="container login-container">
+
+            <div class="card shadow login-card">
+
+                <div class="card-body">
+
+                    <h2 class="text-center mb-4">
+                        Login
+                    </h2>
+
+                    <form>
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label">
+                                Username
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="username"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="password"
+                                required
+                            >
+                        </div>
+
+
+                        <button id="loginButton"
+                            type="submit"
+                            class="btn btn-primary w-100">
+                            Login
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="text-center py-3">
+
+        <p class="mb-0">
+            IOT Dashboard
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
+
