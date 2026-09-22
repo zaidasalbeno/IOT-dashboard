@@ -1,0 +1,119 @@
+body {
+    background-color: #f4f8fb;
+}
+
+.navbar {
+    transition: 0.3s;
+}
+
+.nav-link {
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+.guide-header {
+    background-color: white;
+    padding: 50px 0;
+}
+
+.guide-title {
+    text-align: center;
+}
+
+.guide-title h1 {
+    color: #1168be;
+    font-weight: bold;
+}
+
+.guide-title p {
+    color: #666;
+}
+
+.sensor-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    height: 100%;
+    box-shadow: 0 3px 12px #0001;
+    transition: 0.3s;
+}
+
+.sensor-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 20px #0002;
+}
+
+.sensor-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.sensor-card h3 {
+    color: #1168be;
+    margin-bottom: 15px;
+}
+
+.sensor-card p {
+    color: #666;
+}
+
+.sensor-info {
+    background-color: #eef6fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    color: #555;
+}
+
+.usage-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0001;
+}
+
+.usage-box h2 {
+    color: #1168be;
+}
+
+.usage-box > p {
+    color: #666;
+}
+
+.step {
+    background-color: #eef6fa;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.step:hover {
+    transform: translateY(-4px);
+}
+
+.step strong {
+    color: #1168be;
+}
+
+.step p {
+    color: #666;
+    margin: 10px 0 0;
+}
+
+footer {
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .guide-header {
+        padding: 40px 20px;
+    }
+
+    .usage-box {
+        padding: 20px;
+    }
+}
