@@ -1,0 +1,132 @@
+body {
+    background-color: #f4f8fb;
+}
+
+.navbar {
+    transition: 0.3s;
+}
+
+.navbar:hover {
+    box-shadow: 0 3px 12px #0002;
+}
+
+.garage-header {
+    background-color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.garage-header h1 {
+    color: #1168be;
+    font-weight: bold;
+}
+
+.garage-header p {
+    color: #666;
+}
+
+.status-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0001;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.status-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #0002;
+}
+
+.status-card h5 {
+    color: #1168be;
+    margin-bottom: 10px;
+}
+
+.movement-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0001;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: 0.3s;
+}
+
+.movement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px #0002;
+}
+
+.movement-icon {
+    font-size: 50px;
+}
+
+.movement-card h3 {
+    color: #1168be;
+    margin-bottom: 10px;
+}
+
+.safe-text {
+    color: #198754;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.parking-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 12px #0001;
+    transition: 0.3s;
+}
+
+.parking-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px #0002;
+}
+
+.parking-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.parking-card h4 {
+    color: #1168be;
+    margin-bottom: 12px;
+}
+
+.btn {
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+footer {
+    color: #555;
+}
+
+@media (max-width: 576px) {
+    .status-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .status-card .btn {
+        width: 100%;
+    }
+
+    .movement-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
