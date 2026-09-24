@@ -106,3 +106,62 @@ footer {
         height: 200px;
     }
 }
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-mode .navbar {
+    background-color: #1a1a1a !important;
+}
+
+.dark-mode .card,
+.dark-mode .status-card,
+.dark-mode .info-card,
+.dark-mode .detection-card,
+.dark-mode .summary-card,
+.dark-mode .data-card,
+.dark-mode .control-card,
+.dark-mode .movement-card,
+.dark-mode .parking-card,
+.dark-mode .report-sheet,
+.dark-mode .detail-card,
+.dark-mode .sensor-card,
+.dark-mode .usage-box {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5 {
+    color: #4da3ff;
+}
+
+.dark-mode p,
+.dark-mode span {
+    color: #ccc;
+}
+
+.dark-mode .hero,
+.dark-mode .robot-header,
+.dark-mode .garage-header,
+.dark-mode .storage-header,
+.dark-mode .sortion-header,
+.dark-mode .report-header,
+.dark-mode .guide-header {
+    background-color: #181818;
+}
+
+.dark-mode .image-box,
+.dark-mode .camera-box,
+.dark-mode .sensor-info,
+.dark-mode .step {
+    background-color: #252525;
+}
+
+.dark-mode .data-row {
+    border-bottom-color: #333;
+}
