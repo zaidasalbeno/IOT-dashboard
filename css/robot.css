@@ -1,0 +1,203 @@
+body {
+    background-color: #f4f8fb;
+}
+
+.navbar {
+    transition: .3s;
+}
+
+.navbar:hover {
+    box-shadow: 0 3px 12px #0002;
+}
+
+.robot-header {
+    background-color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.robot-header h1 {
+    color: #1168be;
+    font-weight: bold;
+}
+
+.robot-header p {
+    color: #666;
+}
+
+.status-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0001;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s;
+}
+
+.status-card:hover,
+.info-card:hover,
+.detection-card:hover,
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px #0002;
+}
+
+.status-card h5 {
+    color: #1168be;
+    margin-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.info-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 12px #0001;
+    height: 100%;
+    transition: .3s;
+}
+
+.info-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.info-card h4 {
+    color: #1168be;
+}
+
+.info-value {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.info-card p {
+    color: #777;
+    margin: 0;
+}
+
+.movement {
+    color: #dc3545;
+}
+
+.detection-card,
+.summary-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0001;
+    transition: .3s;
+}
+
+.detection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.detection-header h3,
+.summary-card h4 {
+    color: #1168be;
+}
+
+.detection-header p {
+    color: #777;
+    margin: 5px 0 0;
+}
+
+.camera-box {
+    height: 320px;
+    background-color: #e9f2f7;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.camera-box h4 {
+    color: #1168be;
+}
+
+.camera-box p {
+    color: #777;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 13px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.data-row:last-child {
+    border-bottom: none;
+}
+
+.data-row span {
+    color: #666;
+}
+
+.data-row strong {
+    text-align: right;
+}
+
+.btn {
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+footer {
+    color: #555;
+}
+
+@media (max-width: 576px) {
+    .status-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .button-group {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .button-group .btn {
+        width: 100%;
+    }
+
+    .detection-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .camera-box {
+        height: 250px;
+    }
+
+    .data-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .data-row strong {
+        text-align: left;
+    }
+}

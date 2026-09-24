@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/robot.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="main.html">IoT Dashboard</a>
+        <a href="main.html" class="btn btn-light">← Back to Home</a>
+    </div>
+</nav>
+
+<header class="robot-header">
+    <div class="container">
+        <h1>Robot Dashboard</h1>
+        <p>Monitor the robot while it scans the area for movement.</p>
+    </div>
+</header>
+
+<main class="container my-5">
+
+    <div class="status-card mb-4">
+        <div>
+            <h5>Robot Status</h5>
+            <span class="badge bg-success">Scanning</span>
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-primary">Start Scanning</button>
+            <button class="btn btn-danger">Stop Scanning</button>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-4">
+            <div class="info-card">
+                <div class="info-icon">🌾</div>
+                <h4>Area</h4>
+                <div class="info-value">Field A</div>
+                <p>Current scanning area</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="info-card">
+                <div class="info-icon">📍</div>
+                <h4>Robot Position</h4>
+                <div class="info-value">Zone 3</div>
+                <p>Current robot location</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="info-card">
+                <div class="info-icon">🚶</div>
+                <h4>Movement</h4>
+                <div class="info-value movement">Detected</div>
+                <p>Movement status</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="detection-card mb-4">
+
+        <div class="detection-header">
+            <div>
+                <h3>Latest Detection</h3>
+                <p>The latest movement detected by the robot.</p>
+            </div>
+
+            <span class="badge bg-danger">Movement Detected</span>
+        </div>
+
+        <div class="row g-4 align-items-center">
+
+            <div class="col-md-7">
+                <div class="camera-box">
+                    <div>
+                        <h4>Captured Image</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="detection-info">
+                    <div class="data-row">
+                        <span>Detected</span>
+                        <strong>Person</strong>
+                    </div>
+
+                    <div class="data-row">
+                        <span>Location</span>
+                        <strong>Zone 3</strong>
+                    </div>
+
+                    <div class="data-row">
+                        <span>Detection Time</span>
+                        <strong>14:35</strong>
+                    </div>
+
+                    <div class="data-row">
+                        <span>Picture Sent</span>
+                        <strong class="text-success">Yes</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6">
+            <div class="summary-card">
+                <h4>Scanning Information</h4>
+
+                <div class="data-row">
+                    <span>Area</span>
+                    <strong>Field A</strong>
+                </div>
+
+                <div class="data-row">
+                    <span>Scanning Status</span>
+                    <strong class="text-success">Active</strong>
+                </div>
+
+                <div class="data-row">
+                    <span>Last Scan</span>
+                    <strong>14:36</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="summary-card">
+                <h4>Detection Summary</h4>
+
+                <div class="data-row">
+                    <span>Total Detections</span>
+                    <strong>4</strong>
+                </div>
+
+                <div class="data-row">
+                    <span>Pictures Captured</span>
+                    <strong>4</strong>
+                </div>
+
+                <div class="data-row">
+                    <span>Last Detection</span>
+                    <strong>14:35</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<footer class="text-center py-4">
+    <p>IoT Dashboard</p>
+</footer>
+
+
+</body>
+</html>
