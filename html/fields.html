@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Farm - Garage</title>
+    <title>Smart Farm - Fields and Irrigation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
@@ -15,29 +15,13 @@
 
     <header class="page-head py-5 text-center">
         <div class="container">
-            <h1>Garage</h1>
-            <p>Free parking spots for the farm vehicles and the security system.</p>
+            <h1>Fields and Irrigation</h1>
+            <p>Soil moisture for each field. Start or stop the pumps by hand.</p>
         </div>
     </header>
 
     <main class="container my-4">
-        <div class="status-card d-flex justify-content-between align-items-center p-4 mb-3">
-            <div>
-                <h5>Garage Status</h5>
-                <span class="badge bg-success">Active</span>
-            </div>
-            <button id="act" class="btn btn-primary">Activate</button>
-        </div>
-
-        <div class="card p-3 mb-3 text-center">
-            <small>Open parking spots</small>
-            <div class="big" id="freeCount"></div>
-            <span id="secText"></span>
-        </div>
-
-        <div class="card p-3">
-            <div class="row g-2" id="spots"></div>
-        </div>
+        <div class="row g-3" id="zoneList"></div>
     </main>
 
     <footer class="text-center py-4">
@@ -48,8 +32,7 @@
     <script src="../js/core/store.js"></script>
     <script src="../js/core/layout.js"></script>
     <script src="../js/config/farm-data.js"></script>
-    <script src="../js/core/switch.js"></script>
-    <script src="../js/pages/garage.js"></script>
+    <script src="../js/pages/fields.js"></script>
 </body>
 
 </html>

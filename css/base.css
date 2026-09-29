@@ -1,0 +1,169 @@
+:root {
+    --bg: #c9ae4c;
+    --card: #ddc56d;
+    --ink: #261e08;
+    --muted: #55461a;
+    --line: #a88e30;
+    --button: #5c4813;
+    --button-dark: #3f3009;
+    --good: #3f6b2c;
+    --good-dark: #2c4d1d;
+    --amber: #8a5300;
+    --red: #9c2a1c;
+    --belt-a: #3f3210;
+    --belt-b: #4c3d17;
+    --glow: rgba(255, 238, 150, 0.55);
+}
+
+body.dark-mode {
+    --bg: #1f1011;
+    --card: #2f1a1b;
+    --ink: #f2ddd5;
+    --muted: #c9a79d;
+    --line: #512d2c;
+    --button: #b23a34;
+    --button-dark: #cf4c44;
+    --good: #86b676;
+    --good-dark: #a6d095;
+    --amber: #f0a04b;
+    --red: #ff7d5e;
+    --belt-a: #140a0a;
+    --belt-b: #231212;
+    --glow: rgba(240, 110, 80, 0.3);
+}
+
+body {
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    transition: background 0.4s, color 0.4s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--ink) !important;
+}
+
+p,
+small,
+.text-muted {
+    color: var(--muted) !important;
+}
+
+.navbar,
+.bg-primary {
+    background: var(--card) !important;
+    border-bottom: 2px solid var(--line);
+}
+
+.navbar-brand,
+.navbar .nav-link {
+    color: var(--ink) !important;
+}
+
+.navbar-brand::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 10px var(--amber);
+}
+
+.navbar .nav-link {
+    font-size: 0.9rem;
+    border-radius: 8px;
+    padding: 0.4rem 0.65rem !important;
+    transition: 0.25s;
+}
+
+.navbar .nav-link:hover {
+    background: var(--line);
+    transform: none;
+}
+
+.navbar .nav-link.active {
+    color: var(--button-dark) !important;
+    font-weight: 700;
+    background: var(--glow);
+}
+
+main > * {
+    animation: rise 0.5s ease both;
+}
+
+main > *:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+main > *:nth-child(3) {
+    animation-delay: 0.16s;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes glow {
+    50% {
+        box-shadow: 0 0 12px 3px var(--good);
+    }
+}
+
+@keyframes sun {
+    to {
+        transform: translate(-30px, 20px) scale(1.15);
+    }
+}
+
+@keyframes belt {
+    to {
+        background-position: 48px 0;
+    }
+}
+
+@keyframes slide {
+    from {
+        left: -40px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes beacon {
+    50% {
+        box-shadow: 0 0 20px 6px var(--amber);
+    }
+}
+
+@media (max-width: 576px) {
+    .big {
+        font-size: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

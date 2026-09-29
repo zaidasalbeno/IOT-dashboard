@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IoT Dashboard - Home</title>
+    <title>Smart Farm - Home</title>
 
     <link rel="stylesheet" href="../css/main.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
 </head>
 
 <body>
@@ -20,15 +22,12 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-<button onclick="toggleDarkMode()" class="btn btn-dark">
-    🌙 Dark Mode
-</button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link active" href="main.html">Home</a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a class="nav-link" href="howtouse.html">How To Use</a>
                 </li>
@@ -46,16 +45,26 @@
     <section class="hero py-5">
         <div class="container">
             <div class="hero-box text-center">
-                <h1>SMART IOT MONITORING SYSTEM</h1>
-                <p>Monitor and manage your facility sections from one dashboard.</p>
+                <h1>SMART FARM CONTROL CENTER</h1>
+                <p>Watch the fields, storage, sorting line, garage and robot from one place.</p>
 
                 <div class="status">
                     <span></span>
                     System Online
                 </div>
 
-              
             </div>
+        </div>
+    </section>
+
+    <section class="pt-4">
+        <div class="container">
+            <div class="row g-3 text-center">
+                <div class="col-6 col-lg-4"><div class="card p-3"><small>Items sorted</small><div class="big" id="sumSorted">0</div></div></div>
+                <div class="col-6 col-lg-4"><div class="card p-3"><small>Pumps running</small><div class="big" id="sumPumps">0</div></div></div>
+                <div class="col-12 col-lg-4"><div class="card p-3"><small>Dry fields</small><div class="big" id="sumDry">0</div></div></div>
+            </div>
+            <p class="text-center mt-3 mb-0">Last activity: <span id="sumLast"></span></p>
         </div>
     </section>
 
@@ -63,7 +72,7 @@
         <div class="container">
 
             <div class="text-center mb-4">
-                <h2>Facility Sections</h2>
+                <h2>Farm Sections</h2>
                 <p class="text-muted">Monitor the current status of each section</p>
             </div>
 
@@ -84,7 +93,7 @@
                             </span>
 
                             <p class="text-muted mt-3">
-                                Monitor the storage area and connected devices.
+                                Grain and crop storage: temperature and humidity.
                             </p>
 
                             <a href="storge.html" class="btn btn-primary w-100">
@@ -99,22 +108,22 @@
                     <div class="card section-card shadow-sm h-100">
 
                         <div class="image-box">
-                            <img src="../public/images (2).jfif" alt="Sortion">
+                            <img src="../public/images (2).jfif" alt="Sorting">
                         </div>
 
                         <div class="card-body">
-                            <h4>Sortion</h4>
+                            <h4>Sorting</h4>
 
                             <span class="badge bg-success status-badge">
                                 Active
                             </span>
 
                             <p class="text-muted mt-3">
-                                Monitor the sortion area and its devices.
+                                Harvest sorting line and quality counters.
                             </p>
 
                             <a href="sort.html" class="btn btn-primary w-100">
-                                View Sortion
+                                View Sorting
                             </a>
                         </div>
 
@@ -136,7 +145,7 @@
                             </span>
 
                             <p class="text-muted mt-3">
-                                Monitor garage equipment and connected devices.
+                                Tractors and farm vehicles, parking and security.
                             </p>
 
                             <a href="garage.html" class="btn btn-primary w-100">
@@ -162,7 +171,7 @@
                             </span>
 
                             <p class="text-muted mt-3">
-                                Monitor the robot and its current operation.
+                                Field robot: scanned area and detections.
                             </p>
 
                             <a href="robot.html" class="btn btn-primary w-100">
@@ -183,6 +192,10 @@
     <p class="mb-0">IoT Dashboard</p>
 </footer>
 
-<script src="../js/darkmode.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/core/store.js"></script>
+    <script src="../js/core/layout.js"></script>
+<script src="../js/config/farm-data.js"></script>
+    <script src="../js/pages/main.js"></script>
 </body>
 </html>

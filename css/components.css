@@ -1,0 +1,335 @@
+.card,
+.form-box,
+.table-box,
+.report-sheet,
+.usage-box,
+.status-card,
+.info-card,
+.detection-card,
+.summary-card,
+.data-card,
+.control-card,
+.movement-card,
+.parking-card,
+.detail-card,
+.sensor-card {
+    background: var(--card) !important;
+    color: var(--ink);
+    border: 1px solid var(--line) !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+    transition: 0.3s;
+}
+
+.card:hover,
+.status-card:hover,
+.section-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px var(--glow) !important;
+}
+
+.hero,
+.hero-box,
+.image-box,
+.camera-box,
+.sensor-info,
+.step,
+.head,
+.robot-header,
+.garage-header,
+.storage-header,
+.sortion-header,
+.report-header,
+.guide-header,
+.page-head {
+    background: var(--card) !important;
+    color: var(--ink);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-box {
+    border: 1px solid var(--line);
+}
+
+.hero-box::before,
+.page-head::before,
+.robot-header::before,
+.garage-header::before,
+.storage-header::before,
+.sortion-header::before,
+.report-header::before,
+.guide-header::before,
+.head::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    right: -70px;
+    top: -150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--glow), transparent 70%);
+    animation: sun 7s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.data-row {
+    border-bottom-color: var(--line) !important;
+}
+
+.btn {
+    transition: 0.25s;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn-primary {
+    background: var(--button);
+    border-color: var(--button);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--button-dark);
+    border-color: var(--button-dark);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+}
+
+.big {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.lamp {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: var(--good);
+    animation: glow 2s infinite;
+}
+
+.lamp.off {
+    background: var(--red);
+    animation: none;
+}
+
+.bar {
+    height: 10px;
+    background: var(--line);
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.bar i {
+    display: block;
+    height: 100%;
+    background: var(--good);
+    border-radius: 9px;
+}
+
+.bar i.low {
+    background: var(--red);
+}
+
+.bar i.mid {
+    background: var(--amber);
+}
+
+.belt {
+    height: 46px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: repeating-linear-gradient(90deg, var(--belt-a) 0 24px, var(--belt-b) 24px 48px);
+}
+
+.belt.run {
+    animation: belt 1s linear infinite;
+}
+
+.belt .item {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.belt.run .item {
+    animation: slide 7s linear infinite;
+}
+
+.item.s {
+    background: var(--amber);
+}
+
+.item.m {
+    background: var(--good);
+}
+
+.item.l {
+    background: var(--red);
+}
+
+.spot {
+    padding: 18px 0;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px dashed var(--line);
+}
+
+.spot.free {
+    border-color: var(--good);
+    color: var(--good-dark);
+    box-shadow: inset 0 0 14px var(--glow);
+}
+
+.spot.taken {
+    background: var(--line);
+    color: var(--muted);
+}
+
+.map {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    background: var(--line);
+}
+
+.cell.done {
+    background: var(--good);
+    opacity: 0.5;
+}
+
+.cell.bot {
+    background: var(--amber);
+    opacity: 0.6;
+}
+
+.map.active .cell.bot {
+    opacity: 1;
+    animation: beacon 1.6s infinite;
+}
+
+.cell.alarm {
+    background: var(--red);
+    opacity: 1;
+    box-shadow: 0 0 12px var(--red);
+}
+
+.shot {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+}
+
+.shot img {
+    width: 100%;
+    display: block;
+}
+
+.fan {
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    border-radius: 50%;
+    border: 4px solid var(--muted);
+    position: relative;
+}
+
+.fan::before,
+.fan::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    width: 8px;
+    height: 52px;
+    margin-left: -4px;
+    border-radius: 6px;
+    background: var(--muted);
+}
+
+.fan::after {
+    transform: rotate(90deg);
+}
+
+.fan.on {
+    border-color: var(--good);
+    animation: spin 0.6s linear infinite;
+}
+
+.fan.on::before,
+.fan.on::after {
+    background: var(--good);
+}
+
+.vent {
+    width: 90px;
+    margin: auto;
+    padding: 6px 8px;
+    border: 3px solid var(--muted);
+    border-radius: 8px;
+}
+
+.vent i {
+    display: block;
+    height: 8px;
+    margin: 6px 0;
+    background: var(--muted);
+    transition: transform 0.6s, background 0.4s;
+}
+
+.vent.open {
+    border-color: var(--good);
+}
+
+.vent.open i {
+    transform: scaleY(0.2);
+    background: var(--good);
+}
+
+.skip {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    padding: 0.5rem 1rem;
+    background: var(--button);
+    color: #fff;
+    z-index: 99;
+}
+
+.skip:focus {
+    left: 0;
+}
+
+.toast-box {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    z-index: 99;
+}
+
+.toast-box div {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--bg);
+    animation: rise 0.3s;
+}

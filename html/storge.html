@@ -1,164 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>IoT Dashboard - Storage</title>
-
-    <link rel="stylesheet" href="../css/storge.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+    <title>Smart Farm - Storage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
 </head>
 
 <body>
+    <nav class="navbar"></nav>
 
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container">
-
-        <a class="navbar-brand fw-bold" href="main.html">
-            IoT Dashboard
-        </a>
-
-        <a href="main.html" class="btn btn-light">
-            ← Back to Home
-        </a>
-
-    </div>
-</nav>
-
-
-<main>
-
-    <section class="storage-header">
-
+    <header class="page-head py-5 text-center">
         <div class="container">
-
             <h1>Storage</h1>
-
-            <p>
-                Monitor and control the storage environment.
-            </p>
-
+            <p>Vents open and fans start when the storage gets too humid or too hot.</p>
         </div>
+    </header>
 
-    </section>
-
-
-    <section class="py-5">
-
-        <div class="container">
-
-            <div class="row g-4">
-
-
-                <div class="col-12">
-
-                    <div class="status-card">
-
-                        <div>
-                            <h5>Storage Status</h5>
-
-                            <span class="badge bg-success">
-                                Active
-                            </span>
-                        </div>
-
-                        <button id="act" class="btn btn-success">
-                            Activate
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-12 col-md-6">
-
-                    <div class="data-card">
-
-                        <div class="data-icon">
-                            🌡️
-                        </div>
-
-                        <h4>Temperature</h4>
-
-                        <div class="data-value">
-                            23°C
-                        </div>
-
-                        <p>
-                            Current storage temperature
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-12 col-md-6">
-
-                    <div class="data-card">
-
-                        <div class="data-icon">
-                            💧
-                        </div>
-
-                        <h4>Humidity</h4>
-
-                        <div class="data-value">
-                            45%
-                        </div>
-
-                        <p>
-                            Current storage humidity
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-12">
-
-                    <div class="control-card">
-
-                        <div>
-                            <h4>Manual Control</h4>
-
-                            <p>
-                                Manually control the storage cooling system.
-                            </p>
-                        </div>
-
-                        <button class="btn btn-primary">
-                            Manual Control
-                        </button>
-
-                    </div>
-
-                </div>
-
-
+    <main class="container my-4">
+        <div class="status-card d-flex justify-content-between align-items-center p-4 mb-3">
+            <div>
+                <h5>Storage Status</h5>
+                <span class="badge bg-success">Active</span>
             </div>
-
+            <button id="act" class="btn btn-primary">Activate</button>
         </div>
 
-    </section>
+        <div class="row g-3 mb-3">
+            <div class="col-12 col-md-6"><div class="card p-3"><small>Temperature</small><div class="big" id="tempNow"></div><div class="bar mt-2"><i id="tempBar"></i></div></div></div>
+            <div class="col-12 col-md-6"><div class="card p-3"><small>Humidity</small><div class="big" id="humNow"></div><div class="bar mt-2"><i id="humBar"></i></div></div></div>
+        </div>
 
-</main>
+        <div class="row g-3 mb-3 text-center">
+            <div class="col-6"><div class="card p-3"><div id="fan" class="fan mb-2"></div><strong id="fanText"></strong></div></div>
+            <div class="col-6"><div class="card p-3"><div id="vent" class="vent mb-2"><i></i><i></i><i></i></div><strong id="ventText"></strong></div></div>
+        </div>
 
+        <div class="card p-3 d-flex flex-row flex-wrap gap-3 align-items-center">
+            <label for="tempLimit">Fans on above (C)</label>
+            <input id="tempLimit" type="number" class="form-control" style="width:80px">
+            <label for="humLimit">Vents open above (%)</label>
+            <input id="humLimit" type="number" class="form-control" style="width:80px">
+        </div>
+    </main>
 
-<footer class="text-center py-4">
+    <footer class="text-center py-4">
+        <p>Smart Farm</p>
+    </footer>
 
-    <p class="mb-0">
-        IoT Dashboard
-    </p>
-
-</footer>
-
-<script src="../js/buttons.js"></script>
-<script src="../js/darkmode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/core/store.js"></script>
+    <script src="../js/core/layout.js"></script>
+    <script src="../js/config/farm-data.js"></script>
+    <script src="../js/core/switch.js"></script>
+    <script src="../js/pages/storage.js"></script>
 </body>
+
 </html>
