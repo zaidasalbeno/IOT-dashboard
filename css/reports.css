@@ -1,0 +1,130 @@
+body {
+    background-color: var(--card);
+}
+
+.navbar {
+    transition: 0.3s;
+}
+
+.nav-link {
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+.report-header {
+    background-color: white;
+    padding: 50px 0;
+}
+
+.report-title {
+    text-align: center;
+}
+
+.report-title h1 {
+    color: var(--button-dark);
+    font-weight: bold;
+}
+
+.report-title p {
+    color: var(--muted);
+}
+
+.report-sheet {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0001;
+}
+
+.sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.sheet-header h3 {
+    color: var(--button-dark);
+    margin: 0;
+}
+
+.sheet-header p {
+    color: var(--muted);
+    margin: 5px 0 0;
+}
+
+.table th,
+.table td {
+    padding: 15px;
+}
+
+.detail-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0001;
+    transition: 0.3s;
+    height: 100%;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px #0002;
+}
+
+.detail-card h4 {
+    color: var(--button-dark);
+    margin-bottom: 20px;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.data-row:last-child {
+    border-bottom: none;
+}
+
+.data-row span {
+    color: var(--muted);
+}
+
+.data-row strong {
+    text-align: right;
+}
+
+.btn {
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+footer {
+    color: var(--muted);
+}
+
+@media (max-width: 768px) {
+    .sheet-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .data-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .data-row strong {
+        text-align: left;
+    }
+}

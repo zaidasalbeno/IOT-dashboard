@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sensor Management</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="../css/sensors.css">
+
+<link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+
+        <a class="navbar-brand" href="main.html">
+            IoT Dashboard
+        </a>
+
+        <a href="main.html" class="btn btn-light">
+            ← Back to Home
+        </a>
+
+    </div>
+</nav>
+
+<header class="head">
+    <div class="container">
+
+        <h1>Sensor Management</h1>
+
+        <p>
+            Add, update, view and delete sensors.
+        </p>
+
+    </div>
+</header>
+
+<main class="container my-5">
+
+    <div class="form-box">
+
+        <h2>Add Sensor</h2>
+
+        <form id="sensorForm">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">
+                    Sensor Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    class="form-control"
+                    placeholder="Example: Temperature Sensor"
+                    required
+                >
+            </div>
+
+            <div class="mb-3">
+
+                <label for="type" class="form-label">
+                    Sensor Type
+                </label>
+
+                <select id="type" class="form-select" required>
+
+                    <option value="">
+                        Select sensor type
+                    </option>
+
+                    <option value="Temperature">
+                        Temperature
+                    </option>
+
+                    <option value="Humidity">
+                        Humidity
+                    </option>
+
+                    <option value="Motion">
+                        Motion
+                    </option>
+
+                    <option value="Distance">
+                        Distance
+                    </option>
+
+                    <option value="Parking">
+                        Parking
+                    </option>
+
+                    <option value="Object">
+                        Object
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="status" class="form-label">
+                    Status
+                </label>
+
+                <select id="status" class="form-select" required>
+
+                    <option value="Active">
+                        Active
+                    </option>
+
+                    <option value="Disabled">
+                        Disabled
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button type="submit" id="addBtn" class="btn btn-primary">
+                Add Sensor
+            </button>
+
+            <button type="button" id="cancelBtn" class="btn btn-secondary">
+                Cancel
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="table-box">
+
+        <div class="table-head">
+
+            <div>
+                <h2>Sensor List</h2>
+
+                <p>
+                    Sensors saved in Local Storage
+                </p>
+            </div>
+
+            <span id="count" class="badge bg-primary">
+                0 Sensors
+            </span>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table table-hover">
+
+                <thead class="table-primary">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="list">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer class="text-center py-4">
+
+    <p>
+        IoT Dashboard
+    </p>
+
+</footer>
+
+<script src="../js/pages/sensors.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/core/store.js"></script>
+    <script src="../js/core/layout.js"></script>
+</body>
+
+</html>

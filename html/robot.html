@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Farm - Robot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body>
+    <nav class="navbar"></nav>
+
+    <header class="page-head py-5 text-center">
+        <div class="container">
+            <h1>Robot</h1>
+            <p>The robot walks through the farm, scans each area and takes a picture when it finds an intruder.</p>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <div class="status-card d-flex justify-content-between align-items-center p-4 mb-3">
+            <div>
+                <h5>Robot Status</h5>
+                <span class="badge bg-success">Active</span>
+            </div>
+            <button id="act" class="btn btn-primary">Activate</button>
+        </div>
+
+        <div class="row g-3 mb-3">
+            <div class="col-6"><div class="card p-3 text-center"><small>Cells scanned</small><div class="big" id="scanned"></div></div></div>
+            <div class="col-6"><div class="card p-3 text-center"><small>Intruders found</small><div class="big" id="intruders"></div></div></div>
+        </div>
+
+        <div class="card p-3 mb-3">
+            <div id="map" class="map"></div>
+            <p class="mb-0 mt-2" id="robotText"></p>
+        </div>
+
+        <h5>Intruder pictures</h5>
+        <div class="row g-3" id="photos"></div>
+    </main>
+
+    <footer class="text-center py-4">
+        <p>Smart Farm</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/core/store.js"></script>
+    <script src="../js/core/layout.js"></script>
+    <script src="../js/config/farm-data.js"></script>
+    <script src="../js/core/switch.js"></script>
+    <script src="../js/pages/robot.js"></script>
+</body>
+
+</html>

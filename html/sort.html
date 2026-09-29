@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Farm - Sorting Line</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body>
+    <nav class="navbar"></nav>
+
+    <header class="page-head py-5 text-center">
+        <div class="container">
+            <h1>Sorting Line</h1>
+            <p>Fruits are sorted by volume into small, medium and large.</p>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <div class="status-card d-flex justify-content-between align-items-center p-4 mb-3">
+            <div>
+                <h5>Sorting Status</h5>
+                <span class="badge bg-success">Active</span>
+            </div>
+            <button id="act" class="btn btn-primary">Activate</button>
+        </div>
+
+        <div class="card p-3 mb-3">
+            <div id="belt" class="belt"></div>
+        </div>
+
+        <div class="row g-3 mb-3">
+            <div class="col-4"><div class="card p-3 text-center"><small>Small</small><div class="big" id="countS">0</div></div></div>
+            <div class="col-4"><div class="card p-3 text-center"><small>Medium</small><div class="big" id="countM">0</div></div></div>
+            <div class="col-4"><div class="card p-3 text-center"><small>Large</small><div class="big" id="countL">0</div></div></div>
+        </div>
+
+        <div class="card p-3 mb-3 d-flex flex-row flex-wrap gap-3 align-items-center">
+            <label for="smallBelow">Small below (cm3)</label>
+            <input id="smallBelow" type="number" class="form-control" style="width:90px">
+            <label for="largeFrom">Large from (cm3)</label>
+            <input id="largeFrom" type="number" class="form-control" style="width:90px">
+        </div>
+
+        <div class="table-responsive card">
+            <table class="table mb-0">
+                <thead><tr><th>Fruit</th><th>Volume</th><th>Size</th></tr></thead>
+                <tbody id="fruitTable"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="text-center py-4">
+        <p>Smart Farm</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/core/store.js"></script>
+    <script src="../js/core/layout.js"></script>
+    <script src="../js/config/farm-data.js"></script>
+    <script src="../js/core/switch.js"></script>
+    <script src="../js/pages/sorting.js"></script>
+</body>
+
+</html>
