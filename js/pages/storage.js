@@ -21,8 +21,8 @@ function drawStorage() {
 
     document.getElementById("tempBar").style.width = (temp - 10) / 30 * 100 + "%";
     document.getElementById("humBar").style.width = hum + "%";
-    document.getElementById("tempBar").className = tooHot ? "low" : "";
-    document.getElementById("humBar").className = tooHumid ? "low" : "";
+    document.getElementById("tempBar").className = "progress-bar " + (tooHot ? "bg-danger" : "bg-success");
+    document.getElementById("humBar").className = "progress-bar " + (tooHumid ? "bg-danger" : "bg-success");
 
     document.getElementById("fan").classList.toggle("on", fansOn);
     document.getElementById("vent").classList.toggle("open", ventsOpen);

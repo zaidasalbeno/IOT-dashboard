@@ -11,7 +11,38 @@
 </head>
 
 <body>
-    <nav class="navbar"></nav>
+    <a class="skip" href="#content">Skip to content</a>
+    <div id="toastBox" class="toast-box"></div>
+
+    <nav class="navbar navbar-expand-xl sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="main.html">Smart Farm</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto">
+                    <li><a class="nav-link" href="main.html">Home</a></li>
+                    <li><a class="nav-link" href="fields.html">Fields</a></li>
+                    <li><a class="nav-link" href="storge.html">Storage</a></li>
+                    <li><a class="nav-link" href="sort.html">Sorting</a></li>
+                    <li><a class="nav-link" href="garage.html">Garage</a></li>
+                    <li><a class="nav-link" href="robot.html">Robot</a></li>
+                    <li><a class="nav-link" href="sensors.html">Sensors</a></li>
+                    <li><a class="nav-link" href="reports.html">Reports</a></li>
+                    <li><a class="nav-link" href="log.html">Activity</a></li>
+                    <li><a class="nav-link" href="howtouse.html">Guide</a></li>
+                </ul>
+
+                <div class="d-flex gap-2 my-2">
+                    <button class="btn btn-outline-secondary btn-sm" id="themeButton">Day / Night</button>
+                    <button class="btn btn-outline-secondary btn-sm" id="logoutButton">Log out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <header class="page-head py-5 text-center">
         <div class="container">
@@ -30,20 +61,44 @@
         </div>
 
         <div class="row g-3 mb-3">
-            <div class="col-12 col-md-6"><div class="card p-3"><small>Temperature</small><div class="big" id="tempNow"></div><div class="bar mt-2"><i id="tempBar"></i></div></div></div>
-            <div class="col-12 col-md-6"><div class="card p-3"><small>Humidity</small><div class="big" id="humNow"></div><div class="bar mt-2"><i id="humBar"></i></div></div></div>
+            <div class="col-12 col-md-6">
+                <div class="card p-3">
+                    <small>Temperature</small>
+                    <div class="big" id="tempNow"></div>
+                    <div class="progress mt-2"><div id="tempBar" class="progress-bar"></div></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card p-3">
+                    <small>Humidity</small>
+                    <div class="big" id="humNow"></div>
+                    <div class="progress mt-2"><div id="humBar" class="progress-bar"></div></div>
+                </div>
+            </div>
         </div>
 
         <div class="row g-3 mb-3 text-center">
-            <div class="col-6"><div class="card p-3"><div id="fan" class="fan mb-2"></div><strong id="fanText"></strong></div></div>
-            <div class="col-6"><div class="card p-3"><div id="vent" class="vent mb-2"><i></i><i></i><i></i></div><strong id="ventText"></strong></div></div>
+            <div class="col-6">
+                <div class="card p-3">
+                    <div id="fan" class="fan mb-2"></div>
+                    <strong id="fanText"></strong>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card p-3">
+                    <div id="vent" class="vent mb-2"><i></i><i></i><i></i></div>
+                    <strong id="ventText"></strong>
+                </div>
+            </div>
         </div>
 
-        <div class="card p-3 d-flex flex-row flex-wrap gap-3 align-items-center">
-            <label for="tempLimit">Fans on above (C)</label>
-            <input id="tempLimit" type="number" class="form-control" style="width:80px">
-            <label for="humLimit">Vents open above (%)</label>
-            <input id="humLimit" type="number" class="form-control" style="width:80px">
+        <div class="card p-3">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto"><label for="tempLimit" class="col-form-label">Fans on above (C)</label></div>
+                <div class="col-auto"><input id="tempLimit" type="number" class="form-control" style="width: 80px"></div>
+                <div class="col-auto"><label for="humLimit" class="col-form-label">Vents open above (%)</label></div>
+                <div class="col-auto"><input id="humLimit" type="number" class="form-control" style="width: 80px"></div>
+            </div>
         </div>
     </main>
 

@@ -1,7 +1,9 @@
-var belt = document.getElementById("belt");
 var smallInput = document.getElementById("smallBelow");
 var largeInput = document.getElementById("largeFrom");
-var fruitTable = document.getElementById("fruitTable");
+var belt = document.getElementById("belt");
+var rows = document.querySelectorAll("#fruitTable tr");
+var items = document.querySelectorAll("#belt .item");
+
 var limits = load("sortLimits", {
     small: farmData.sorting.smallBelow,
     large: farmData.sorting.largeFrom
@@ -12,37 +14,32 @@ largeInput.value = limits.large;
 
 function sizeOf(volume) {
     if (volume < limits.small) {
-        return { key: "s", name: "Small" };
+        return { key: "s", name: "Small", badge: "bg-warning" };
     }
 
     if (volume >= limits.large) {
-        return { key: "l", name: "Large" };
+        return { key: "l", name: "Large", badge: "bg-danger" };
     }
 
-    return { key: "m", name: "Medium" };
+    return { key: "m", name: "Medium", badge: "bg-success" };
 }
 
-function drawSorting() {
+function showSorting() {
     var counts = { s: 0, m: 0, l: 0 };
-    var rows = "";
-    var beltItems = "";
 
-    farmData.sorting.fruits.forEach(function (fruit, index) {
-        var size = sizeOf(fruit.volume);
-        var pixels = 14 + fruit.volume / 10;
+    rows.forEach(function (row, index) {
+        var size = sizeOf(Number(row.dataset.volume));
+        var badge = row.querySelector(".fruit-size");
 
         counts[size.key]++;
 
-        rows +=
-            "<tr><td>" + fruit.name + "</td><td>" + fruit.volume + " cm3</td><td>" + size.name + "</td></tr>";
+        badge.textContent = size.name;
+        badge.className = "badge fruit-size " + size.badge;
 
-        beltItems +=
-            '<span class="item ' + size.key + '" style="width:' + pixels + "px;height:" + pixels +
-            "px;top:" + (46 - pixels) / 2 + "px;left:" + index * 12 + "%;animation-delay:-" + index * 0.9 + 's"></span>';
+        items[index].classList.remove("s", "m", "l");
+        items[index].classList.add(size.key);
     });
 
-    fruitTable.innerHTML = rows;
-    belt.innerHTML = beltItems;
     belt.classList.toggle("run", isOn);
 
     document.getElementById("countS").textContent = counts.s;
@@ -58,11 +55,11 @@ function saveLimits() {
 
     save("sortLimits", limits);
     addLog("Sorting", "Limits set: small below " + limits.small + ", large from " + limits.large);
-    drawSorting();
+    showSorting();
 }
 
 smallInput.onchange = saveLimits;
 largeInput.onchange = saveLimits;
-document.addEventListener("partchange", drawSorting);
+document.addEventListener("partchange", showSorting);
 
-drawSorting();
+showSorting();

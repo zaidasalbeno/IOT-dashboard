@@ -18,20 +18,39 @@
 </head>
 
 <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <div id="toastBox" class="toast-box"></div>
 
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container">
 
-        <a class="navbar-brand" href="main.html">
-            IoT Dashboard
-        </a>
+<nav class="navbar navbar-expand-xl sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="main.html">Smart Farm</a>
 
-        <a href="main.html" class="btn btn-light">
-            ← Back to Home
-        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    </div>
-</nav>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto">
+                    <li><a class="nav-link" href="main.html">Home</a></li>
+                    <li><a class="nav-link" href="fields.html">Fields</a></li>
+                    <li><a class="nav-link" href="storge.html">Storage</a></li>
+                    <li><a class="nav-link" href="sort.html">Sorting</a></li>
+                    <li><a class="nav-link" href="garage.html">Garage</a></li>
+                    <li><a class="nav-link" href="robot.html">Robot</a></li>
+                    <li><a class="nav-link" href="sensors.html">Sensors</a></li>
+                    <li><a class="nav-link" href="reports.html">Reports</a></li>
+                    <li><a class="nav-link" href="log.html">Activity</a></li>
+                    <li><a class="nav-link" href="howtouse.html">Guide</a></li>
+                </ul>
+
+                <div class="d-flex gap-2 my-2">
+                    <button class="btn btn-outline-secondary btn-sm" id="themeButton">Day / Night</button>
+                    <button class="btn btn-outline-secondary btn-sm" id="logoutButton">Log out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
 <header class="head">
     <div class="container">
@@ -192,6 +211,19 @@
     </p>
 
 </footer>
+
+<template id="sensorRowTemplate">
+    <tr>
+        <td class="sensor-id"></td>
+        <td class="sensor-name"></td>
+        <td class="sensor-type"></td>
+        <td><span class="badge sensor-status"></span></td>
+        <td>
+            <button class="btn btn-warning btn-sm edit-button">Edit</button>
+            <button class="btn btn-danger btn-sm delete-button">Delete</button>
+        </td>
+    </tr>
+</template>
 
 <script src="../js/pages/sensors.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

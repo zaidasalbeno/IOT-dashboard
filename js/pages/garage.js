@@ -1,27 +1,13 @@
-var spotBox = document.getElementById("spots");
+var spots = document.querySelectorAll(".spot");
 
-function drawGarage() {
-    var html = "";
-    var free = 0;
+function showGarage() {
+    var free = document.querySelectorAll(".spot.free").length;
 
-    farmData.parking.forEach(function (taken, index) {
-        if (!taken) {
-            free++;
-        }
-
-        html +=
-            '<div class="col-4 col-md-2"><div class="spot ' + (taken ? "taken" : "free") + '">' +
-            "P" + (index + 1) + "<br><small>" + (taken ? "Taken" : "Free") + "</small></div></div>";
-    });
-
-    spotBox.innerHTML = html;
-    document.getElementById("freeCount").textContent = free + " / " + farmData.parking.length;
-
-    document.getElementById("secText").innerHTML =
-        '<span class="lamp ' + (isOn ? "" : "off") + '"></span>' +
-        (isOn ? "Security system is armed" : "Security system is off");
+    document.getElementById("freeCount").textContent = free + " / " + spots.length;
+    document.getElementById("secLamp").classList.toggle("off", !isOn);
+    document.getElementById("secText").textContent = isOn ? "Security system is armed" : "Security system is off";
 }
 
-document.addEventListener("partchange", drawGarage);
+document.addEventListener("partchange", showGarage);
 
-drawGarage();
+showGarage();

@@ -11,7 +11,38 @@
 </head>
 
 <body>
-    <nav class="navbar"></nav>
+    <a class="skip" href="#content">Skip to content</a>
+    <div id="toastBox" class="toast-box"></div>
+
+    <nav class="navbar navbar-expand-xl sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="main.html">Smart Farm</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto">
+                    <li><a class="nav-link" href="main.html">Home</a></li>
+                    <li><a class="nav-link" href="fields.html">Fields</a></li>
+                    <li><a class="nav-link" href="storge.html">Storage</a></li>
+                    <li><a class="nav-link" href="sort.html">Sorting</a></li>
+                    <li><a class="nav-link" href="garage.html">Garage</a></li>
+                    <li><a class="nav-link" href="robot.html">Robot</a></li>
+                    <li><a class="nav-link" href="sensors.html">Sensors</a></li>
+                    <li><a class="nav-link" href="reports.html">Reports</a></li>
+                    <li><a class="nav-link" href="log.html">Activity</a></li>
+                    <li><a class="nav-link" href="howtouse.html">Guide</a></li>
+                </ul>
+
+                <div class="d-flex gap-2 my-2">
+                    <button class="btn btn-outline-secondary btn-sm" id="themeButton">Day / Night</button>
+                    <button class="btn btn-outline-secondary btn-sm" id="logoutButton">Log out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <header class="page-head py-5 text-center">
         <div class="container">
@@ -30,26 +61,46 @@
         </div>
 
         <div class="card p-3 mb-3">
-            <div id="belt" class="belt"></div>
+            <div id="belt" class="belt">
+            <span class="item" style="width:22.5px; height:22.5px; top:11.75px; left:0%; animation-delay:-0.0s"></span>
+            <span class="item" style="width:28.0px; height:28.0px; top:9.0px; left:12%; animation-delay:-0.9s"></span>
+            <span class="item" style="width:40.0px; height:40.0px; top:3.0px; left:24%; animation-delay:-1.8s"></span>
+            <span class="item" style="width:19.5px; height:19.5px; top:13.25px; left:36%; animation-delay:-2.7s"></span>
+            <span class="item" style="width:31.0px; height:31.0px; top:7.5px; left:48%; animation-delay:-3.6s"></span>
+            <span class="item" style="width:35.0px; height:35.0px; top:5.5px; left:60%; animation-delay:-4.5s"></span>
+            <span class="item" style="width:23.5px; height:23.5px; top:11.25px; left:72%; animation-delay:-5.4s"></span>
+            <span class="item" style="width:43.0px; height:43.0px; top:1.5px; left:84%; animation-delay:-6.3s"></span>
+            </div>
         </div>
 
-        <div class="row g-3 mb-3">
-            <div class="col-4"><div class="card p-3 text-center"><small>Small</small><div class="big" id="countS">0</div></div></div>
-            <div class="col-4"><div class="card p-3 text-center"><small>Medium</small><div class="big" id="countM">0</div></div></div>
-            <div class="col-4"><div class="card p-3 text-center"><small>Large</small><div class="big" id="countL">0</div></div></div>
+        <div class="row g-3 mb-3 text-center">
+            <div class="col-4"><div class="card p-3"><small>Small</small><div class="big" id="countS">0</div></div></div>
+            <div class="col-4"><div class="card p-3"><small>Medium</small><div class="big" id="countM">0</div></div></div>
+            <div class="col-4"><div class="card p-3"><small>Large</small><div class="big" id="countL">0</div></div></div>
         </div>
 
-        <div class="card p-3 mb-3 d-flex flex-row flex-wrap gap-3 align-items-center">
-            <label for="smallBelow">Small below (cm3)</label>
-            <input id="smallBelow" type="number" class="form-control" style="width:90px">
-            <label for="largeFrom">Large from (cm3)</label>
-            <input id="largeFrom" type="number" class="form-control" style="width:90px">
+        <div class="card p-3 mb-3">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto"><label for="smallBelow" class="col-form-label">Small below (cm3)</label></div>
+                <div class="col-auto"><input id="smallBelow" type="number" class="form-control" style="width: 90px"></div>
+                <div class="col-auto"><label for="largeFrom" class="col-form-label">Large from (cm3)</label></div>
+                <div class="col-auto"><input id="largeFrom" type="number" class="form-control" style="width: 90px"></div>
+            </div>
         </div>
 
         <div class="table-responsive card">
             <table class="table mb-0">
                 <thead><tr><th>Fruit</th><th>Volume</th><th>Size</th></tr></thead>
-                <tbody id="fruitTable"></tbody>
+                <tbody id="fruitTable">
+                    <tr data-volume="85"><td>Apple</td><td>85 cm3</td><td><span class="badge fruit-size"></span></td></tr>
+                    <tr data-volume="140"><td>Orange</td><td>140 cm3</td><td><span class="badge fruit-size"></span></td></tr>
+                    <tr data-volume="260"><td>Mango</td><td>260 cm3</td><td><span class="badge fruit-size"></span></td></tr>
+                    <tr data-volume="55"><td>Plum</td><td>55 cm3</td><td><span class="badge fruit-size"></span></td></tr>
+                    <tr data-volume="170"><td>Peach</td><td>170 cm3</td><td><span class="badge fruit-size"></span></td></tr>
+                    <tr data-volume="210"><td>Pear</td><td>210 cm3</td><td><span class="badge fruit-size"></span></td></tr>
+                    <tr data-volume="95"><td>Lemon</td><td>95 cm3</td><td><span class="badge fruit-size"></span></td></tr>
+                    <tr data-volume="290"><td>Grapefruit</td><td>290 cm3</td><td><span class="badge fruit-size"></span></td></tr>
+                </tbody>
             </table>
         </div>
     </main>

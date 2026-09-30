@@ -237,7 +237,7 @@ select:focus-visible {
     border: 1px solid var(--line);
 }
 
-.shot img {
+.shot canvas {
     width: 100%;
     display: block;
 }
@@ -332,4 +332,37 @@ select:focus-visible {
     background: var(--ink);
     color: var(--bg);
     animation: rise 0.3s;
+}
+
+.progress {
+    height: 10px;
+    background: var(--line);
+    border-radius: 9px;
+}
+
+.progress-bar.bg-success {
+    background: var(--good) !important;
+}
+
+.progress-bar.bg-warning {
+    background: var(--amber) !important;
+}
+
+.progress-bar.bg-danger {
+    background: var(--red) !important;
+}
+
+.badge.bg-success {
+    background: var(--good) !important;
+    color: var(--bg);
+}
+
+.badge.bg-warning {
+    background: var(--amber) !important;
+    color: var(--bg);
+}
+
+.badge.bg-danger {
+    background: var(--red) !important;
+    color: var(--bg);
 }
