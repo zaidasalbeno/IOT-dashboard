@@ -14,49 +14,52 @@ let sensors = JSON.parse(localStorage.getItem("sensors")) || [];
 
 let editId = null;
 
+const rowTemplate = document.getElementById("sensorRowTemplate");
+
 function showSensors() {
 
-list.innerHTML = "";
+    list.innerHTML = "";
 
-sensors.forEach(function(sensor) {
+    sensors.forEach(function(sensor) {
 
-    const row = document.createElement("tr");
+        const row = rowTemplate.content.cloneNode(true);
+        const badge = row.querySelector(".sensor-status");
 
-    row.innerHTML = `
-        <td>${sensor.id}</td>
+        row.querySelector(".sensor-id").textContent = sensor.id;
+        row.querySelector(".sensor-name").textContent = sensor.name;
+        row.querySelector(".sensor-type").textContent = sensor.type;
 
-        <td>${sensor.name}</td>
+        badge.textContent = sensor.status;
+        badge.className = "badge sensor-status " + (sensor.status === "Active" ? "bg-success" : "bg-danger");
 
-        <td>${sensor.type}</td>
+        row.querySelector(".edit-button").dataset.id = sensor.id;
+        row.querySelector(".delete-button").dataset.id = sensor.id;
 
-        <td>
-            <span class="badge ${sensor.status === "Active" ? "bg-success" : "bg-danger"}">
-                ${sensor.status}
-            </span>
-        </td>
+        list.appendChild(row);
 
-        <td>
-            <button
-                class="btn btn-warning btn-sm edit-btn"
-                onclick="editSensor(${sensor.id})">
-                Edit
-            </button>
+    });
 
-            <button
-                class="btn btn-danger btn-sm"
-                onclick="deleteSensor(${sensor.id})">
-                Delete
-            </button>
-        </td>
-    `;
-
-    list.appendChild(row);
-
-});
-
-count.textContent = sensors.length + " Sensors";
+    count.textContent = sensors.length + " Sensors";
 
 }
+
+list.addEventListener("click", function(event) {
+
+    const id = Number(event.target.dataset.id);
+
+    if (!id) {
+        return;
+    }
+
+    if (event.target.classList.contains("edit-button")) {
+        editSensor(id);
+    }
+
+    if (event.target.classList.contains("delete-button")) {
+        deleteSensor(id);
+    }
+
+});
 
 form.addEventListener("submit", function(event) {
 

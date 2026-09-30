@@ -14,31 +14,39 @@
 </head>
 
 <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <div id="toastBox" class="toast-box"></div>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="main.html">IoT Dashboard</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="main.html">Home</a>
-                </li>
+<nav class="navbar navbar-expand-xl sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="main.html">Smart Farm</a>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="howtouse.html">How To Use</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="reports.html">Reports</a>
-                </li>
-                <li class="nav-item">
-<a class="nav-link" href="sensors.html">Sensors</a>            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto">
+                    <li><a class="nav-link" href="main.html">Home</a></li>
+                    <li><a class="nav-link" href="fields.html">Fields</a></li>
+                    <li><a class="nav-link" href="storge.html">Storage</a></li>
+                    <li><a class="nav-link" href="sort.html">Sorting</a></li>
+                    <li><a class="nav-link" href="garage.html">Garage</a></li>
+                    <li><a class="nav-link" href="robot.html">Robot</a></li>
+                    <li><a class="nav-link" href="sensors.html">Sensors</a></li>
+                    <li><a class="nav-link" href="reports.html">Reports</a></li>
+                    <li><a class="nav-link" href="log.html">Activity</a></li>
+                    <li><a class="nav-link" href="howtouse.html">Guide</a></li>
+                </ul>
+
+                <div class="d-flex gap-2 my-2">
+                    <button class="btn btn-outline-secondary btn-sm" id="themeButton">Day / Night</button>
+                    <button class="btn btn-outline-secondary btn-sm" id="logoutButton">Log out</button>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 <main>
 

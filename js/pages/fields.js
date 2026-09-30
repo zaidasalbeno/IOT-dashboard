@@ -1,54 +1,65 @@
-var zoneList = document.getElementById("zoneList");
+var cards = document.querySelectorAll(".field-card");
+
+var fillPerTick = 3;
+var dropPerTick = 0.5;
+var tickTime = 2000;
+
 var pumps = load("pumps", [false, false, false, false]);
+var moisture = load("moisture", farmData.fieldMoisture);
 
-function barClass(moisture) {
-    if (moisture < 30) {
-        return "low";
+function barColor(value) {
+    if (value < 30) {
+        return "bg-danger";
     }
 
-    if (moisture < 50) {
-        return "mid";
+    if (value < 50) {
+        return "bg-warning";
     }
 
-    return "";
+    return "bg-success";
 }
 
-function drawFields() {
-    var html = "";
-
-    farmData.fields.forEach(function (field, index) {
+function showFields() {
+    cards.forEach(function (card, index) {
         var pumpOn = pumps[index];
+        var level = Math.round(moisture[index]);
+        var bar = card.querySelector(".moisture-bar");
+        var button = card.querySelector(".pump-button");
 
-        html +=
-            '<div class="col-12 col-md-6"><div class="card p-3">' +
-            '<div class="d-flex justify-content-between">' +
-            '<h5 class="mb-0">' + field.name + "</h5>" +
-            '<span><span class="lamp ' + (pumpOn ? "" : "off") + '"></span>' + (pumpOn ? "Pump on" : "Pump off") + "</span>" +
-            "</div>" +
-            "<small>" + field.crop + "</small>" +
-            '<div class="big my-2">' + field.moisture + "%</div>" +
-            '<div class="bar mb-3"><i class="' + barClass(field.moisture) + '" style="width:' + field.moisture + '%"></i></div>' +
-            '<button class="btn btn-sm ' + (pumpOn ? "btn-danger" : "btn-primary") + '" data-index="' + index + '">' +
-            (pumpOn ? "Stop pump" : "Start pump") + "</button>" +
-            "</div></div>";
+        card.querySelector(".pump-lamp").classList.toggle("off", !pumpOn);
+        card.querySelector(".pump-text").textContent = pumpOn ? "Pump on" : "Pump off";
+        card.querySelector(".field-moisture").textContent = level + "%";
+
+        bar.style.width = level + "%";
+        bar.className = "progress-bar moisture-bar " + barColor(level);
+
+        button.textContent = pumpOn ? "Stop pump" : "Start pump";
+        button.className = "btn btn-sm pump-button " + (pumpOn ? "btn-danger" : "btn-primary");
+    });
+}
+
+function changeMoisture() {
+    moisture = moisture.map(function (value, index) {
+        var next = value + (pumps[index] ? fillPerTick : -dropPerTick);
+        return Math.min(100, Math.max(0, next));
     });
 
-    zoneList.innerHTML = html;
+    save("moisture", moisture);
+    showFields();
 }
 
-zoneList.onclick = function (event) {
-    var index = event.target.dataset.index;
+cards.forEach(function (card, index) {
+    var name = card.querySelector("h5").textContent;
 
-    if (index === undefined) {
-        return;
-    }
+    card.querySelector(".pump-button").onclick = function () {
+        pumps[index] = !pumps[index];
+        save("pumps", pumps);
+        showFields();
 
-    pumps[index] = !pumps[index];
-    save("pumps", pumps);
-    drawFields();
+        addLog("Fields", name + ": pump " + (pumps[index] ? "started" : "stopped"));
+        toast(name + ": pump " + (pumps[index] ? "on" : "off"));
+    };
+});
 
-    addLog("Fields", farmData.fields[index].name + ": pump " + (pumps[index] ? "started" : "stopped"));
-    toast(farmData.fields[index].name + ": pump " + (pumps[index] ? "on" : "off"));
-};
-
-drawFields();
+showFields();
+setInterval(changeMoisture, tickTime);

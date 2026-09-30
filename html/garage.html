@@ -11,7 +11,38 @@
 </head>
 
 <body>
-    <nav class="navbar"></nav>
+    <a class="skip" href="#content">Skip to content</a>
+    <div id="toastBox" class="toast-box"></div>
+
+    <nav class="navbar navbar-expand-xl sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="main.html">Smart Farm</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto">
+                    <li><a class="nav-link" href="main.html">Home</a></li>
+                    <li><a class="nav-link" href="fields.html">Fields</a></li>
+                    <li><a class="nav-link" href="storge.html">Storage</a></li>
+                    <li><a class="nav-link" href="sort.html">Sorting</a></li>
+                    <li><a class="nav-link" href="garage.html">Garage</a></li>
+                    <li><a class="nav-link" href="robot.html">Robot</a></li>
+                    <li><a class="nav-link" href="sensors.html">Sensors</a></li>
+                    <li><a class="nav-link" href="reports.html">Reports</a></li>
+                    <li><a class="nav-link" href="log.html">Activity</a></li>
+                    <li><a class="nav-link" href="howtouse.html">Guide</a></li>
+                </ul>
+
+                <div class="d-flex gap-2 my-2">
+                    <button class="btn btn-outline-secondary btn-sm" id="themeButton">Day / Night</button>
+                    <button class="btn btn-outline-secondary btn-sm" id="logoutButton">Log out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <header class="page-head py-5 text-center">
         <div class="container">
@@ -32,11 +63,24 @@
         <div class="card p-3 mb-3 text-center">
             <small>Open parking spots</small>
             <div class="big" id="freeCount"></div>
-            <span id="secText"></span>
+            <span><span id="secLamp" class="lamp off"></span><span id="secText"></span></span>
         </div>
 
         <div class="card p-3">
-            <div class="row g-2" id="spots"></div>
+            <div class="row g-2" id="spots">
+            <div class="col-4 col-md-2"><div class="spot taken">P1<br><small>Taken</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot free">P2<br><small>Free</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot taken">P3<br><small>Taken</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot taken">P4<br><small>Taken</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot free">P5<br><small>Free</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot free">P6<br><small>Free</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot taken">P7<br><small>Taken</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot free">P8<br><small>Free</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot free">P9<br><small>Free</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot taken">P10<br><small>Taken</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot free">P11<br><small>Free</small></div></div>
+            <div class="col-4 col-md-2"><div class="spot taken">P12<br><small>Taken</small></div></div>
+            </div>
         </div>
     </main>
 

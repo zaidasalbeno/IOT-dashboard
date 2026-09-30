@@ -1,7 +1,8 @@
-var mapBox = document.getElementById("map");
 var robot = farmData.robot;
 var total = robot.columns * robot.rows;
-var cells = [];
+var map = document.getElementById("map");
+var cells = document.querySelectorAll("#map .cell");
+var canvases = document.querySelectorAll(".photo-canvas");
 
 function cellIndex(step) {
     var row = Math.floor(step / robot.columns);
@@ -14,23 +15,20 @@ function cellIndex(step) {
     return row * robot.columns + column;
 }
 
+function placeName(step) {
+    var row = Math.floor(step / robot.columns) + 1;
+    var column = cellIndex(step) % robot.columns + 1;
+
+    return "Row " + row + ", Col " + column;
+}
+
 function isIntruderStep(step) {
-    return robot.intruders.some(function (item) {
-        return item.step === step;
+    return Array.from(canvases).some(function (canvas) {
+        return Number(canvas.dataset.step) === step;
     });
 }
 
-function buildMap() {
-    for (var i = 0; i < total; i++) {
-        var cell = document.createElement("div");
-
-        cell.className = "cell";
-        mapBox.appendChild(cell);
-        cells.push(cell);
-    }
-}
-
-function drawMap() {
+function showMap() {
     for (var step = 0; step < total; step++) {
         var classes = "cell";
 
@@ -49,23 +47,17 @@ function drawMap() {
         cells[cellIndex(step)].className = classes;
     }
 
-    var row = Math.floor(robot.position / robot.columns) + 1;
-    var column = cellIndex(robot.position) % robot.columns + 1;
-
-    mapBox.classList.toggle("active", isOn);
+    map.classList.toggle("active", isOn);
     document.getElementById("scanned").textContent = robot.position;
-    document.getElementById("intruders").textContent = robot.intruders.length;
-    document.getElementById("robotText").textContent = isOn
-        ? "Robot is scanning row " + row + ", column " + column
-        : "Robot is docked at row " + row + ", column " + column;
+    document.getElementById("intruders").textContent = canvases.length;
+    document.getElementById("robotText").textContent =
+        (isOn ? "Robot is scanning " : "Robot is docked at ") + placeName(robot.position).toLowerCase();
 }
 
-function drawPicture(where, time) {
-    var canvas = document.createElement("canvas");
+function paintPicture(canvas) {
     var pen = canvas.getContext("2d");
-
-    canvas.width = 240;
-    canvas.height = 150;
+    var where = placeName(Number(canvas.dataset.step));
+    var time = canvas.dataset.time;
 
     pen.fillStyle = "#1d2b16";
     pen.fillRect(0, 0, 240, 150);
@@ -89,27 +81,10 @@ function drawPicture(where, time) {
     pen.fillText("CAM 1  " + where, 8, 14);
     pen.fillText(time, 8, 144);
 
-    return canvas.toDataURL("image/jpeg", 0.6);
+    canvas.closest(".photo-item").querySelector(".photo-text").textContent = where + " - " + time;
 }
 
-function drawPhotos() {
-    var html = "";
+canvases.forEach(paintPicture);
+document.addEventListener("partchange", showMap);
 
-    robot.intruders.forEach(function (item) {
-        var row = Math.floor(item.step / robot.columns) + 1;
-        var column = cellIndex(item.step) % robot.columns + 1;
-        var where = "Row " + row + ", Col " + column;
-
-        html +=
-            '<div class="col-6 col-md-4"><div class="shot">' +
-            '<img src="' + drawPicture(where, item.time) + '" alt="Intruder picture"></div>' +
-            "<small>" + where + " - " + item.time + "</small></div>";
-    });
-
-    document.getElementById("photos").innerHTML = html;
-}
-
-buildMap();
-drawMap();
-drawPhotos();
-document.addEventListener("partchange", drawMap);
+showMap();
